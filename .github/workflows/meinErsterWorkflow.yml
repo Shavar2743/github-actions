@@ -5,5 +5,5 @@ jobs:
     meinErsterJob:
         runs-on: ubuntu-latest
         steps:
-            -name: meinErsterStep
-            run: echo "Hallo Welt!"
+            - name: meinErsterStep
+              run: echo "Hallo Welt!"
