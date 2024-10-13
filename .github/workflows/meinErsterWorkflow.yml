@@ -1,9 +1,19 @@
 name: meinErsterWorkflow
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-    meinErsterJob:
+    changed-job:
         runs-on: ubuntu-latest
         steps:
             - name: meinErsterStep
               run: echo "Hallo Welt!"
+
+            - name: Abschied
+              run: echo "Bye Bye!"
