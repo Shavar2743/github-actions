@@ -1,0 +1,28 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Code auschecken"
+    - git clone $CI_REPOSITORY_URL .
+    - echo "Abhängigkeiten installieren"
+    - npm install
+    - echo "Projekt bauen"
+    - npm run build
+
+test:
+  stage: test
+  needs: ["build"]
+  script:
+    - echo "Tests ausführen"
+    - npm test
+
+deploy:
+  stage: deploy
+  needs: ["test"]
+  script:
+    - echo "Deployment ausführen"
+    - echo "Deploying..."
